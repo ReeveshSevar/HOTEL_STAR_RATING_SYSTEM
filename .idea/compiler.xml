@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="EurekaServer" />
+        <module name="Rating-Service" />
+        <module name="Gateway" />
+        <module name="Hotel-Service" />
+        <module name="ConfigServer" />
+        <module name="User-Service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="API-Gateway" target="17" />
+      <module name="API_GATEWAY" target="17" />
+      <module name="ApiGateway" target="17" />
+      <module name="GATEWAY" target="17" />
+      <module name="Security" target="17" />
+      <module name="Security-Service" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="API-Gateway" options="-parameters" />
+      <module name="API_GATEWAY" options="-parameters" />
+      <module name="ApiGateway" options="-parameters" />
+      <module name="ConfigServer" options="-parameters" />
+      <module name="EurekaServer" options="-parameters" />
+      <module name="GATEWAY" options="-parameters" />
+      <module name="Gateway" options="-parameters" />
+      <module name="Hotel-Service" options="-parameters" />
+      <module name="Rating-Service" options="-parameters" />
+      <module name="Security" options="-parameters" />
+      <module name="Security-Service" options="-parameters" />
+      <module name="User-Service" options="-parameters" />
+    </option>
+  </component>
+</project>
