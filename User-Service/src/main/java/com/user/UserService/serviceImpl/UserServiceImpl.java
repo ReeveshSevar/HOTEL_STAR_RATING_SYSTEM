@@ -36,24 +36,24 @@ public class UserServiceImpl implements UserService
         return repository.save(users);
     }
 
-    @Override
+   @Override
     public Users getUser(String id) {
        Users users = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User Not found"));
-       // Fetching Rating From Rating Service By Using RestTemplate
-        Ratings[] ratingOfUser = restTemplate.getForObject("http://RATING-SERVICE/ratings/userId/"+users.getId(), Ratings[].class);
-        List<Ratings> ratings = Arrays.stream(ratingOfUser).toList();
-        List<Ratings> ratingList = ratings.stream().map(rating ->
-        {
-//            ResponseEntity<Hotel> response = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/"+rating.getHotelId(), Hotel.class);
+
+       // Fetching Rating By UserId Using RatingService FeignClient
+       List<Ratings> ratings = ratingService.getRatingByUsesId(id);
+
+       // Fetching Hotel Using HotelService FeignCLient
+       List<Ratings> ratingList = ratings.stream().map(rating ->
+       {
             Hotel hotel = hotelService.getHotel(rating.getHotelId());
             rating.setHotel(hotel);
             return rating;
-        }).toList();
+       }).toList();
 
         users.setRatings(ratings);
        return users;
     }
-
     @Override
     public List<Users> getUsers() {
         return repository.findAll();
