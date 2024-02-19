@@ -11,4 +11,6 @@ public interface RatingService {
     public Ratings createRating(Ratings ratings);
     @DeleteMapping("/ratings/{ratingId}")
     public void deleteRating(@PathVariable String ratingId);
+    @GetMapping("ratings/userId/{id}")
+    public List<Ratings> getRatingByUsesId(@PathVariable String id);
 }
